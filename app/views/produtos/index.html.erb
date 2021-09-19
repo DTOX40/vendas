@@ -31,7 +31,7 @@
             <td><%= produto.vencimento %></td>
             <td><%= produto.preco_compra %></td>
             <td><%= produto.preco_venda %></td>
-            <td><%= produto.tipo_produto %></td>
+            
             <td><%= link_to 'Mostrar', produto %></td>
         <td><%= link_to 'Editar', edit_produto_path(produto) %></td>
         <td><%= link_to 'Apagar', produto, method: :delete, data: { confirm: 'Você tem certeza que deseja apagar' } %></td>
