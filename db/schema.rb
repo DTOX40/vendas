@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_18_195152) do
+ActiveRecord::Schema.define(version: 2021_09_18_213103) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,4 +23,24 @@ ActiveRecord::Schema.define(version: 2021_09_18_195152) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "produtos", force: :cascade do |t|
+    t.string "nome"
+    t.text "descricao"
+    t.integer "quantidade"
+    t.datetime "vencimento"
+    t.float "preco_compra"
+    t.float "preco_venda"
+    t.bigint "tipo_produto_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tipo_produto_id"], name: "index_produtos_on_tipo_produto_id"
+  end
+
+  create_table "tipo_produtos", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "produtos", "tipo_produtos"
 end

@@ -1,0 +1,29 @@
+<div class="page-header">
+  <%= link_to new_tipo_produto_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Novo
+  <% end %>
+  <h1>Lista</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Nome</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @tipo_produtos) do |tipo_produto| %>
+            <td><%= tipo_produto.nome %></td>
+            <td><%= link_to 'Mostrar', tipo_produto %></td>
+        <td><%= link_to 'Editar', edit_tipo_produto_path(tipo_produto) %></td>
+        <td><%= link_to 'Apagar', tipo_produto, method: :delete, data: { confirm: 'Você tem certeza que deseja apagar' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>
