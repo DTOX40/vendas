@@ -1,0 +1,33 @@
+<div class="page-header">
+  <%= link_to new_recita_path, class: 'btn btn-primary' do %>
+    <span class="glyphicon glyphicon-plus"></span>
+    Novo
+  <% end %>
+  <h1>Lista</h1>
+</div>
+
+<div class="table-responsive">
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+            <th>Nome</th>
+            <th>Descricao</th>
+            <th>Valor</th>
+            <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%= content_tag_for(:tr, @recitas) do |recita| %>
+            <td><%= recita.nome %></td>
+            <td><%= recita.descricao %></td>
+            <td><%= recita.valor %></td>
+            <td><%= link_to 'Mostrar', recita %></td>
+        <td><%= link_to 'Editar', edit_recita_path(recita) %></td>
+        <td><%= link_to 'Apagar', recita, method: :delete, data: { confirm: 'Você tem certeza que deseja apagar' } %></td>
+      <% end %>
+    </tbody>
+  </table>
+</div>

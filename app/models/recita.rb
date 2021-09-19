@@ -1,0 +1,2 @@
+class Recita < ApplicationRecord
+end
